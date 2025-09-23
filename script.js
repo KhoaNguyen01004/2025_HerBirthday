@@ -274,13 +274,13 @@ function draw() {
         const text = 'Happy Birthday Ẻm';
         const letters = text.split('');
         const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
-        let x = canvas.width / 2 - (letters.length * 30) / 2; // approximate
-        ctx.font = '48px Arial';
+        let x = canvas.width / 2 - (letters.length * 15) / 2; // approximate
+        ctx.font = '24px Arial';
         ctx.textAlign = 'center';
         letters.forEach((letter, index) => {
             ctx.fillStyle = colors[index % colors.length];
             ctx.fillText(letter, x, canvas.height / 2);
-            x += 30; // approximate width per letter
+            x += 15; // approximate width per letter
         });
         // Make bird hover
         bird.velocity = 0;
