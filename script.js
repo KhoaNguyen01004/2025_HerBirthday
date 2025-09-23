@@ -3,7 +3,7 @@ const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
 
 // Game variables
-let bird = { x: 50, y: 300, width: 60, height: 60, velocity: 0 };
+let bird = { x: 50, y: 300, width: 40, height: 40, velocity: 0 };
 let pipes = [];
 let score = 0;
 let gameRunning = false;
@@ -53,7 +53,7 @@ pipeImage.src = 'images/pipe.png';
 // Constants
 const GRAVITY = 0.6;
 const JUMP_FORCE = -8;
-const PIPE_WIDTH = 60;
+const PIPE_WIDTH = 40;
 const PIPE_GAP = 200;
 const PIPE_SPEED = 2;
 
@@ -72,6 +72,16 @@ document.addEventListener('keydown', (e) => {
 });
 
 canvas.addEventListener('click', () => {
+    if (!gameRunning && !countdownActive && !gameOver) {
+        startCountdown();
+    } else if (gameRunning && !gameOver) {
+        jump();
+    }
+});
+
+// Touch event listeners for mobile
+canvas.addEventListener('touchstart', (e) => {
+    e.preventDefault();
     if (!gameRunning && !countdownActive && !gameOver) {
         startCountdown();
     } else if (gameRunning && !gameOver) {

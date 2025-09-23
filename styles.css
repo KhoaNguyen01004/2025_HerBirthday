@@ -26,6 +26,8 @@ canvas {
     margin: 0 auto;
     max-width: 100%;
     height: auto;
+    width: 100%;
+    max-width: 400px;
 }
 
 #score {
